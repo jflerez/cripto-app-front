@@ -1,0 +1,62 @@
+<section>
+  
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{ errorMessage }} <a [routerLink]="['/usuario']"> (LOGIN AQUI) </a>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+  
+  <div class="card card__header">
+    <div class="container">
+      <div class="card-col">
+        <p>Nombre</p>
+      </div>
+      <div class="card-col">
+        <p>Precio</p>
+      </div>
+      <div class="card-col">
+        <p>Criptomoneda</p>
+      </div>
+      <div class="card-col">
+        <p>Convertir</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-moneda-list" #scrollingBlock>
+    <virtual-scroller #scroll [parentScroll]="scrollingBlock" [items]="buffer" (vsEnd)="fetchMore($event)">
+      <div class="card card__row" *ngFor="let moneda of scroll.viewPortItems">
+        <div class="container">
+          <div class="card-col">
+            <p>{{ moneda.name }}</p>
+          </div>
+          <div class="card-col card-col__price">
+            <p>{{ moneda.price | currency }}</p>
+          </div>
+          <div class="card-col">
+            <div class="card-col__crypto" [ngClass]="{
+              'si-cripto': moneda.crypto === '1',
+              'no-cripto': moneda.crypto === '0'
+            }">
+              <div class="circle-indicador si-cripto" *ngIf="moneda.crypto === '1'"></div>
+              <div class="circle-indicador no-cripto" *ngIf="moneda.crypto === '0'"></div>
+              <span>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</span>
+            </div>
+          </div>
+          <div class="card-col">
+            <a (click)="convertirMoneda(moneda)">
+              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30">
+            </a>
+            <a (click)="guardarMoneda(moneda)" *ngIf="showGuardarMoneda">
+              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="loading" class="loader">Loading...</div>
+    </virtual-scroller>
+  </div>
+
+</section>

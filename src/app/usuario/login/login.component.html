@@ -1,0 +1,32 @@
+<div id="login">   
+  <h1>Iniciar Session</h1>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="ingresarUsuario(loginForm.value)">
+  
+    <div class="field-wrap">
+      <input type="text" placeholder="Usuario" required autocomplete="off" formControlName="username" />
+    </div>
+  
+    <div class="field-wrap">
+      <input type="password" placeholder="Contraseña" required autocomplete="off" formControlName="clave"/>
+    </div>
+
+    <div class="field-wrap" *ngIf="errorMessages">
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <li *ngFor="let error of errorMessages">
+            {{ error.msg }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    
+    <button class="button button-block" [ngClass]="{'disabled': loginForm.invalid }">Ingresar</button>
+
+  </form>
+
+</div>

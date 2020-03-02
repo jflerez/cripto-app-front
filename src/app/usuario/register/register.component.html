@@ -1,0 +1,59 @@
+<div id="signup">   
+  <h1>Registro</h1>
+  
+  <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario(registerForm.value)">
+
+    <div class="field-wrap">
+      <input type="text" required placeholder="Nombre" autocomplete="off" formControlName="nombre"/>
+    </div>
+    
+    <div class="field-wrap">
+      <input type="text" required placeholder="Apellido" autocomplete="off" formControlName="apellido"/>
+    </div>
+
+    <div class="field-wrap">
+      <input type="text" required placeholder="Username" autocomplete="off" formControlName="username"/>
+    </div>
+
+    <div class="field-wrap">
+      <input type="password"required placeholder="Contraseña" autocomplete="off" formControlName="clave"/>
+    </div>
+
+    <div class="field-wrap">
+      <div class="dropdown custom-dropdown">
+        <div class="dropdown-trigger" tabindex="1">
+          <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !monedaSeleccionada }">
+            {{ monedaSeleccionada ? monedaSeleccionada.id_currency : 'Moneda' }}
+          </span>
+          <i class="icon-chevron-down icon icon-arrow-down"></i>
+        </div>
+        <div class="selector-drop">
+          <div class="selector-option" *ngFor="let criptoMoneda of criptoMonedas"
+              (mousedown)="seleccionarMoneda(criptoMoneda)">
+            <div class="option-name">{{ criptoMoneda.name }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-wrap" *ngIf="errorMessages">
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <li *ngFor="let error of errorMessages">
+            {{ error.msg }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field-wrap" *ngIf="successMessage">
+      <div class="alert alert-success" role="alert">
+        {{ successMessage }}
+      </div>
+    </div>
+    
+    <button type="submit" class="button button-block" [ngClass]="{'disabled': registerForm.invalid || !monedaSeleccionada }">Registrar</button>
+  
+  </form>
+
+</div>

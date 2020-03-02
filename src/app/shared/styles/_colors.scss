@@ -1,0 +1,13 @@
+/* colors */
+$blue: #0076FF;
+$red: #FF4A53;
+$dark: #333;
+$primary: #949494;
+$accentBlue: #E7F2FE;
+$white: #ffffff;
+$success: #1ED980;
+$error: #EE564E;
+
+$accent: $blue;
+$accent-inactive: desaturate($accent, 85%);
+$secondary: $accent-inactive;

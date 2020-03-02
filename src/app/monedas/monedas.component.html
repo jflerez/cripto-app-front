@@ -1,0 +1,32 @@
+<div class="tabs">
+  <input type="radio" id="tab1" name="tab-control" [checked]="selectedTabRealizarCambio">
+  <input type="radio" id="tab2" name="tab-control" [checked]="!selectedTabRealizarCambio">
+  <div class="tab-header">
+    <ul>
+      <li>
+        <label for="tab1" role="button" (click)="navigateTo('/monedas/realizarCambio')">
+          <br>
+          <span [ngClass]="{'selected-tab': selectedTabRealizarCambio}">
+            REALIZAR CAMBIO
+          </span>
+        </label>
+      </li>
+      <li>
+        <label for="tab2" role="button" (click)="navigateTo('/monedas/listadoMonedas')">
+          <br>
+          <span [ngClass]="{'selected-tab': !selectedTabRealizarCambio}">
+            LISTADO MONEDAS
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+    
+  <div class="slider">
+    <div class="indicator"></div>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
