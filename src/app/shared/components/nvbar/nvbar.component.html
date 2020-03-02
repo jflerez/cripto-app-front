@@ -1,12 +1,12 @@
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
 <div class="topnav" id="myTopnav">
-  <a [routerLink]="['/usuario']" routerLinkActive="active">
+  <a *ngIf="!showMisMonedas" [routerLink]="['/usuario']" routerLinkActive="active">
     Ingresar
   </a>
   <a [routerLink]="['/monedas']" routerLinkActive="active">
     Monedas
   </a>
-  <a [routerLink]="['/misMonedas']" routerLinkActive="active">
+  <a *ngIf="showMisMonedas" [routerLink]="['/misMonedas']" routerLinkActive="active">
     Mis Monedas
   </a>
   <a (click)="cerrarSesion()" class="cerrar-Sesion" *ngIf="showCerrarSesion">
