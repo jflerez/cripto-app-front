@@ -14,6 +14,7 @@ export class NvbarComponent implements OnInit {
   LOGIN_SESION: Observable<any>;
   showMisMonedas = false;
 
+
   constructor(private router: Router) {
     this.CERRAR_SESION = fromEvent(window, 'CERRAR_SESION');
     this.LOGIN_SESION = fromEvent(window, 'LOGIN_SESION');
@@ -43,6 +44,7 @@ export class NvbarComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('logueado');
     localStorage.removeItem('fromListado');
+    localStorage.removeItem('username');
   }
 
 }

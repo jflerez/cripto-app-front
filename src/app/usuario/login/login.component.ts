@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.loginUsuario(loginForm)
     .subscribe((success: any) => {
       localStorage.setItem('token', success.token);
+      localStorage.setItem('username', success.usuario.username);
       localStorage.setItem('logueado', 'true');
       window.dispatchEvent(new CustomEvent('LOGIN_SESION'));
       this.router.navigate(['/monedas']);

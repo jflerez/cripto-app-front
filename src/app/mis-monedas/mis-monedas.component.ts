@@ -15,6 +15,7 @@ export class MisMonedasComponent implements OnInit {
   subscription: Subscription[] = [];
   misMonedas: any[];
   errorMessageToken: string;
+  username: string;
 
   constructor(
     private misMonedasService: MisMonedasService,
@@ -24,6 +25,7 @@ export class MisMonedasComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioLogueado = localStorage.getItem('logueado') === 'true';
     if (this.usuarioLogueado) {
+      this.username = localStorage.getItem('username');
       this.subscription.push(this.misMonedasService.getCriptoMonedasByUser()
       .subscribe((response: any) => {
         this.misMonedas = response;
