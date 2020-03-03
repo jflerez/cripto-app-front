@@ -12,3 +12,6 @@ Posteriormente procedemos a ejecutar el comando `npm start` para que que la apli
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Aplicación alojada en Azure
+La aplicación alojada en Azure se accede a través de este link: https://app-cripto.azurewebsites.net
+
