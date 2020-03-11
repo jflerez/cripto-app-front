@@ -32,6 +32,6 @@ When(/^luego invierto el orden de las monedas$/, async () => {
   });
 
 
-Then(/^debo obtener el resultado invirtiendo el orden de las monedas igual a 321.29$/, async () => {
-  expect(await page.getConvertedResult()).to.equal('321.29');
+Then(/^debo obtener el resultado invirtiendo el orden de las monedas igual a 380.18$/, async () => {
+  expect(await page.getConvertedResult()).to.equal('380.18');
 });

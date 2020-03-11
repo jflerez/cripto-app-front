@@ -32,7 +32,7 @@
       {{ errorMessageToken }}
     </div>
     <section *ngIf="usuarioLogueado else errorMessage">
-        
+
       <div class="card card__header">
         <div class="container">
           <div class="card-col">
@@ -42,7 +42,7 @@
             <p>{{ 'Fuente' | translate }}</p>
           </div>
           <div class="card-col">
-            <p>{{ 'Precio' | translate }}</p>
+            <p>{{ 'Precio' | translate }} <i class="fa fa-sort sort-prices" *ngIf="misMonedas && misMonedas.length > 1" (click)="ordenarByPrecio()"></i></p>
           </div>
         </div>
       </div>

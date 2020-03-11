@@ -28,6 +28,6 @@ When(/^selecciono la moneda de destino$/, async () => {
 });
 
 
-Then(/^debo tener el resultado2 3112484848.48$/, async () => {
-  expect(await page.getConvertedResult()).to.equal('3112484848.48');
+Then(/^debo tener el resultado2 2630309523.81$/, async () => {
+  expect(await page.getConvertedResult()).to.equal('2630309523.81');
 });

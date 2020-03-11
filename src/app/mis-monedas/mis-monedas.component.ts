@@ -16,7 +16,8 @@ export class MisMonedasComponent implements OnInit {
   misMonedas: any[];
   errorMessageToken: string;
   username: string;
-  notFoundMonedas = 'No se encontraron monedas.'
+  notFoundMonedas = 'No se encontraron monedas.';
+  ascOrder: boolean = false;
 
   constructor(
     private misMonedasService: MisMonedasService,
@@ -67,6 +68,13 @@ export class MisMonedasComponent implements OnInit {
     if (status === 403 || status === 401) {
       this.router.navigate(['/usuario']);
     }
+  }
+
+  ordenarByPrecio() {
+
+    this.ascOrder = !this.ascOrder;
+      return this.ascOrder ? this.misMonedas.sort((a, b) => Number(a.precio) - Number(b.precio)) : this.misMonedas.sort((a, b) => Number(b.precio) - Number(a.precio));
+
   }
 
 }

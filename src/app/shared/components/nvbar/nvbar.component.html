@@ -1,12 +1,12 @@
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
 <div class="topnav" id="myTopnav">
-  <a *ngIf="!showMisMonedas" [routerLink]="['/usuario']" routerLinkActive="active">
+  <a *ngIf="!showCerrarSesion" [routerLink]="['/usuario']" routerLinkActive="active">
     {{'Ingresar' | translate}}
   </a>
   <a [routerLink]="['/monedas']" routerLinkActive="active">
     {{'Monedas' | translate}}
   </a>
-  <a *ngIf="showMisMonedas" [routerLink]="['/misMonedas']" routerLinkActive="active">
+  <a *ngIf="showCerrarSesion" [routerLink]="['/misMonedas']" routerLinkActive="active">
     {{'Mis Monedas' | translate}}
   </a>
   <span>
@@ -17,8 +17,9 @@
       </option>
     </select>
   </span>
-  <a *ngIf="showCerrarSesion" class="cerrar-Sesion"><span class="username">{{username}}</span></a>
+
   <a (click)="cerrarSesion()" class="cerrar-Sesion" *ngIf="showCerrarSesion">
     {{'Cerrar Sesión' | translate}}
   </a>
+  <a *ngIf="showCerrarSesion" class="cerrar-Sesion"><span class="username">{{username}}</span></a>
 </div>

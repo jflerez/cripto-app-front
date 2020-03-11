@@ -1,5 +1,3 @@
-// Protractor configuration file, see link for more information
-// https://github.com/angular/protractor/blob/master/lib/config.ts
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -23,7 +21,6 @@ exports.config = {
   plugins: [{
     package: 'protractor-multiple-cucumber-html-reporter-plugin',
     options:{
-      // read the options part for more options
       automaticallyGenerateReport: true,
       removeExistingJsonReportFile: true
   }
